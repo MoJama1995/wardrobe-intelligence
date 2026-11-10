@@ -1,0 +1,61 @@
+# ── Secrets & credentials (never commit) ─────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*-sa-key.json
+*service-account*.json
+credentials.json
+application_default_credentials.json
+
+# ── Model weights, datasets & large artefacts (live in GCS / HF Hub) ─
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.gguf
+experiments/data/
+experiments/results/
+experiments/checkpoints/
+wandb/
+mlruns/
+
+# ── Python ───────────────────────────────────────────────────────────
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# ── Node / frontend ──────────────────────────────────────────────────
+node_modules/
+dist/
+coverage/
+*.local
+*.tsbuildinfo
+
+# ── Pulumi ───────────────────────────────────────────────────────────
+# Stack files (Pulumi.<stack>.yaml) ARE committed; they hold non-secret
+# config and encrypted secrets only.
+
+# ── Claude Code ──────────────────────────────────────────────────────
+.claude/settings.local.json
+.claude/.state/
+
+# ── OS / editors ─────────────────────────────────────────────────────
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+logs/
+*.log
