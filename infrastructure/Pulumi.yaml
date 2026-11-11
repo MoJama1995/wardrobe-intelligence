@@ -1,0 +1,10 @@
+name: wardrobe-intelligence
+description: Google Cloud infrastructure for Wardrobe Intelligence
+runtime:
+  name: python
+  options:
+    toolchain: uv
+config:
+  wardrobe-intelligence:environment:
+    type: string
+    description: Deployment environment, `dev` or `prod`. Must match the stack name.

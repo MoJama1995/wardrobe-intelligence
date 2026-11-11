@@ -1,0 +1,34 @@
+[project]
+name = "wardrobe-intelligence-infrastructure"
+version = "0.1.0"
+description = "Pulumi (Python) program for all Google Cloud resources."
+requires-python = ">=3.12"
+dependencies = [
+    "pulumi>=3.274.1",
+]
+# pulumi-gcp is added with the first real resource (see README.md).
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = ["-ra", "--strict-markers", "--strict-config"]
+markers = [
+  "slow: takes more than a few seconds; excluded by `make test`",
+  "integration: talks to a real dependency (another service, an emulator)",
+  "gpu: needs a CUDA GPU; never runs in CI or `make test`",
+  "model: downloads or loads real model weights; excluded by `make test`",
+]
+
+[tool.mypy]
+strict = true
+files = ["__main__.py", "stack_config.py", "tests"]
+
+[dependency-groups]
+dev = [
+    "mypy>=2.4.1",
+    "pytest>=9.2.0",
+    "ruff>=0.17.4",
+]

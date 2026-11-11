@@ -1,0 +1,40 @@
+[project]
+name = "wardrobe-intelligence-inference"
+version = "0.1.0"
+description = "VLM inference service. Owns model loading, preprocessing and prompting; nothing else."
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.162.4",
+    "pydantic>=2.14.3",
+    "pydantic-settings>=2.16.2",
+    "uvicorn[standard]>=0.54.0",
+]
+# ML runtime dependencies (torch, transformers or vLLM, ...) are added together with
+# the ADR that selects the serving runtime. See README.md "Open decisions".
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = ["-ra", "--strict-markers", "--strict-config"]
+markers = [
+  "slow: takes more than a few seconds; excluded by `make test`",
+  "integration: talks to a real dependency (another service, an emulator)",
+  "gpu: needs a CUDA GPU; never runs in CI or `make test`",
+  "model: downloads or loads real model weights; excluded by `make test`",
+]
+
+[tool.mypy]
+strict = true
+plugins = ["pydantic.mypy"]
+files = ["app", "tests"]
+
+[dependency-groups]
+dev = [
+    "httpx2>=2.16.0",
+    "mypy>=2.4.1",
+    "pytest>=9.2.0",
+    "ruff>=0.17.4",
+]

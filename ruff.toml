@@ -1,0 +1,34 @@
+# Shared Ruff configuration for every Python project in the repo.
+# Projects inherit this file automatically; do not add [tool.ruff] to a
+# project's pyproject.toml unless it genuinely needs to differ (and then use
+# `extend = "<path to this file>"` so the shared rules still apply).
+target-version = "py312"
+line-length = 100
+extend-exclude = ["experiments/**/*.ipynb"]
+# Source roots, so imports such as `app` and `ai_evaluation` sort as first-party.
+src = [
+  "services/api",
+  "services/inference",
+  "packages/ai-evaluation/src",
+  "infrastructure",
+]
+
+[lint]
+select = [
+  "E", "W",  # pycodestyle
+  "F",       # pyflakes
+  "I",       # import sorting
+  "B",       # bugbear: likely bugs
+  "UP",      # pyupgrade: modern syntax
+  "SIM",     # simplifications
+  "N",       # naming
+  "S",       # bandit: security
+  "PT",      # pytest style
+  "ASYNC",   # async pitfalls
+  "T20",     # print() left in code: use logging
+  "RUF",     # ruff-specific
+]
+
+[lint.per-file-ignores]
+"**/tests/**" = ["S101"]           # assert is how pytest works
+"**/scripts/**" = ["T20"]          # CLI scripts may print

@@ -49,7 +49,6 @@ coverage/
 
 # ── Claude Code ──────────────────────────────────────────────────────
 .claude/settings.local.json
-.claude/.state/
 
 # ── OS / editors ─────────────────────────────────────────────────────
 .DS_Store

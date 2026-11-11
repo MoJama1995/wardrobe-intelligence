@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(uv run pytest *)",
+      "Bash(uv run ruff *)",
+      "Bash(uv run mypy *)",
+      "Bash(uv run python -m app.contract)",
+      "Bash(npm run *)",
+      "Bash(npm test *)",
+      "Bash(make check)",
+      "Bash(make lint)",
+      "Bash(make test)"
+    ],
+    "ask": [
+      "Bash(git push *)",
+      "Bash(gcloud run deploy *)",
+      "Bash(gcloud builds submit *)",
+      "Bash(docker push *)"
+    ],
+    "deny": [
+      "Bash(git commit *)",
+      "Bash(git -C * commit *)",
+      "Bash(git -c * commit *)",
+      "Bash(pulumi *)",
+      "Bash(uv run pulumi *)",
+      "Bash(uv run * pulumi *)",
+      "Bash(gcloud projects delete *)",
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(!.env.example)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/*-sa-key.json)",
+      "Read(**/*service-account*.json)",
+      "Read(~/.config/gcloud/**)",
+      "Read(~/.pulumi/credentials.json)"
+    ]
+  }
+}
