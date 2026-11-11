@@ -45,19 +45,19 @@ Each skill is a folder in `.claude/skills/` containing a `SKILL.md` file:
 
 `SKILL.md` starts with a short header (YAML "frontmatter") followed by Markdown instructions:
 
-```markdown
----
-name: pr-review
-description: Review a branch, pull request or diff against Wardrobe Intelligence's own
-  standards (...). Use for "review my changes", "review this PR", or a self-review before
-  opening a pull request.
----
+  ```markdown
+  ---
+  name: pr-review
+  description: Review a branch, pull request or diff against Wardrobe Intelligence's own
+    standards (...). Use for "review my changes", "review this PR", or a self-review before
+    opening a pull request.
+  ---
 
-# PR review
+  # PR review
 
-## Workflow
-1. Collect the change ...
-```
+  ## Workflow
+  1. Collect the change ...
+  ```
 
 (Shortened here. In the real file, the description is one long line, and yours should be too.)
 

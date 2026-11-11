@@ -1,6 +1,6 @@
 # Lesson 3: How software systems communicate
 
-**Time:** about 2.5 hours, in five parts (A–E) plus a coding challenge.
+**Time:** about 3.5 hours, in five parts (A–E) plus a coding challenge.
 
 **By the end you can:**
 

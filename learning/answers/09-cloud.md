@@ -165,12 +165,12 @@ services)
 One good design, where the API sends the **image bytes** to inference:
 
 ```
- Service account   Role                              On resource                Why
- ───────────────   ───────────────────────────────   ────────────────────────   ─────────────────────────
- api               roles/storage.objectCreator       uploads bucket             store new photos
- api               roles/storage.objectViewer        uploads bucket             (only if it reads them back)
- api               roles/run.invoker                 inference service          call inference
- inference         roles/storage.objectViewer        model-registry bucket      load weights
+ Account     Role                          On resource              Why
+ ─────────   ───────────────────────────   ──────────────────────   ──────────────────────────
+ api         roles/storage.objectCreator   uploads bucket           store new photos
+ api         roles/storage.objectViewer    uploads bucket           only if it reads them back
+ api         roles/run.invoker             inference service        call inference
+ inference   roles/storage.objectViewer    model-registry bucket    load weights
 
  api must NOT:        read or change the model registry; delete photos it doesn't need to delete;
                       administer anything (no Owner/Editor).

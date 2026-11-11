@@ -53,7 +53,7 @@ The goal, end to end:
   Vite dev proxy  ─────────────────▶  services/api on :8000
                                          │ 1. validate (type, size)
                                          │ 2. strip EXIF (GPS!)
-                                         │ 3. store under a random id ──▶ local-uploads/  (later: GCS)
+                                         │ 3. store under a random id ──▶ local-uploads/ (later GCS)
                                          │ 4. POST /predict, with a timeout
                                          ▼
                                       services/inference on :8001

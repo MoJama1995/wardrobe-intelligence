@@ -45,6 +45,8 @@ API docs (OpenAPI/Swagger) are at <http://localhost:8000/docs> while the API run
 
 ## How we work
 
+- [learning/README.md](learning/README.md): new to the stack? Start the hands-on course here
+  (Lesson 1 first)
 - [CONTRIBUTING.md](CONTRIBUTING.md): branches, commits, PRs, definition of done
 - [docs/README.md](docs/README.md): where each kind of documentation lives
 - [docs/development/claude-code.md](docs/development/claude-code.md): the Claude Code skills and

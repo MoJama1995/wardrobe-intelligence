@@ -1,6 +1,6 @@
 # Lesson 1: Git and collaborative development
 
-**Time:** about 2.5 hours, in five parts (A–E). Stop between parts whenever you like.
+**Time:** about 3 hours, in five parts (A–E) plus a short challenge. Stop between parts whenever you like.
 
 **By the end you can:**
 

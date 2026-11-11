@@ -1,6 +1,6 @@
 # Lesson 2: Project structure and architecture
 
-**Time:** about 1.5 hours, in three parts (A–C) plus a short challenge.
+**Time:** about 2 hours, in three parts (A–C) plus a short challenge.
 
 **By the end you can:**
 

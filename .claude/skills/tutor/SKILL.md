@@ -49,6 +49,10 @@ fluent in Python and ML, newer to software engineering, systems, APIs, deploymen
   a fix.
 - Practice exercises happen in throwaway folders outside the repository (such as `~/git-practice`).
   In the real repository, all work goes on a branch.
+- In coding exercises and the final challenge (Lesson 12), the learner writes the code. Explain,
+  review and give hints; show solution code only after they've tried and ask for it.
+- Answers typed in the web viewer (`learning/app`) are stored in the learner's browser, and you
+  can't see them. Ask the learner to paste the answer they want to discuss.
 
 ## Safety
 

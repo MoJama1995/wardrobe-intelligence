@@ -307,11 +307,11 @@ exist* ("a private bucket called `wardrobe-intelligence-dev-uploads`, deleting f
 and Pulumi works out *how* to get there.
 
 ```
-   infrastructure/*.py  ──▶  pulumi preview  ──▶  "will create 1 bucket, 2 bindings"  ──▶  review
-   (desired state)           (compare with                                                  │
-                              what exists)                                                   ▼
-                                                      pulumi up  ──▶  Google Cloud changes ──▶ state
-                                                      (a human runs it, after review)        recorded
+   infrastructure/*.py ──▶ pulumi preview ──▶ "will create 1 bucket, 2 bindings" ──▶ review
+   (desired state)          (compares with                                             │
+                             what exists)                                              ▼
+                                         pulumi up ──▶ Google Cloud changes ──▶ state recorded
+                                         (a human runs it, after review)
 ```
 
 Words you'll need:
