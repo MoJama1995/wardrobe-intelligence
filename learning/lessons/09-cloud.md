@@ -194,7 +194,7 @@ know from day one:
   An idle Cloud Run service that scales to zero costs essentially nothing. A GPU that stays on costs
   money every second.
 
-Our project rule (from `.claude/skills/gcp-infrastructure/SKILL.md`): **every new resource comes with
+Our project rule (from `.agents/skills/gcp-infrastructure/SKILL.md`): **every new resource comes with
 a cost estimate, and anything above about $10/month recurring needs an ADR and explicit approval.**
 
 ### IAM: who can do what
@@ -270,7 +270,7 @@ A **region** is a geographical location with Google data centres, such as `europ
 `us-central1` (Iowa). You choose a region for each resource. Three things drive the choice for us:
 
 1. **GPU availability.** Not every region has GPUs on Cloud Run. Our research notes
-   (`.claude/skills/gcp-infrastructure/cost-reference.md`, checked 10 November 2026) list L4 GPUs in
+   (`.agents/skills/gcp-infrastructure/cost-reference.md`, checked 10 November 2026) list L4 GPUs in
    `europe-west1`, `europe-west4`, `us-central1`, `us-east4` and two Asian regions. **London
    (`europe-west2`) was not listed.**
 2. **Keep data and compute together.** If photos sit in one region and inference runs in another,
@@ -374,7 +374,7 @@ here than when Pulumi talks to Google?
 
 ### Exercise D2: estimate a cost (15 minutes)
 
-Use the figures in `.claude/skills/gcp-infrastructure/cost-reference.md`. They're research notes from
+Use the figures in `.agents/skills/gcp-infrastructure/cost-reference.md`. They're research notes from
 10 November 2026, so always re-check prices before a real decision. The smallest Cloud Run instance
 with an L4 GPU (4 vCPU, 16 GiB, no zonal redundancy) costs **about $1.05 per hour** while it runs.
 GPU services use instance-based billing: you also pay for idle time before the instance scales down.

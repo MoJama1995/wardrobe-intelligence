@@ -1,13 +1,13 @@
 ---
 name: pr-review
-description: Review a branch, pull request or diff against Wardrobe Intelligence's own standards (correctness, security and privacy, error handling, tests, ML validity, infrastructure safety, unnecessary abstraction) and give actionable, prioritised feedback. Use for "review my changes", "review this PR", or a self-review before opening a pull request. For a deep automated bug hunt, the built-in /code-review is also available.
+description: Review a branch, pull request or diff against Wardrobe Intelligence's own standards (correctness, security and privacy, error handling, tests, ML validity, infrastructure safety, unnecessary abstraction) and give actionable, prioritised feedback. Use for "review my changes", "review this PR", or a self-review before opening a pull request. For a deep automated bug hunt, the built-in /code-review (Claude Code) or /review (Codex) is also available.
 ---
 
 # PR review
 
 Named `pr-review` so it doesn't replace Claude Code's built-in `/code-review`; a project skill with
 that name would override it. Use both: `/code-review` hunts for bugs, and this skill checks
-project conventions.
+project conventions. In Codex, the built-in `/review` plays the same role as `/code-review`.
 
 ## Workflow
 

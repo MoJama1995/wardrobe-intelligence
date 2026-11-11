@@ -25,7 +25,7 @@ uv run ruff check . && uv run ruff format --check . && uv run mypy
 | `app/core/logging.py` | structured JSON logs for Cloud Logging |
 | `app/contract.py` | writes `openapi.json`, the contract for `apps/web` |
 
-Conventions: `.claude/skills/api-development/SKILL.md`.
+Conventions: `.agents/skills/api-development/SKILL.md`.
 
 ## Configuration
 

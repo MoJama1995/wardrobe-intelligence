@@ -45,7 +45,7 @@ Sizes: **S** ≤ ½ day, **M** 1–2 days, **L** 3–5 days. Anything bigger get
 - [ ] Tests at the right level (see `testing-strategy`); results reported honestly
 - [ ] Docs updated (README / service docs); ADR if a meaningful decision was made
 - [ ] ML work: evaluation report against the baseline, with dataset and model versions recorded
-- [ ] Infrastructure work: preview reviewed, cost noted, nothing applied to prod by Claude
+- [ ] Infrastructure work: preview reviewed, cost noted, nothing applied to prod by the coding agent
 - [ ] No new TODO without a linked issue
 
 ## Tracking

@@ -14,7 +14,7 @@
    Use an imperative subject (≤ 72 characters) with a scope (`api`, `web`, `inference`, `eval`,
    `infra`, `ml`, `claude`). The body explains *why*.
 3. Push the branch and open a pull request. **Nothing goes directly to `main`.** The other developer
-   reviews (see `.claude/skills/pr-review/`).
+   reviews (see `.agents/skills/pr-review/`).
 4. Merge when CI is green and the review is approved. Prefer squash merges for small PRs.
 
 Never commit secrets, `.env` files, credentials, datasets or model weights. `.gitignore` catches the
@@ -24,7 +24,7 @@ secret is ever committed, **rotate it immediately**: removing it from history is
 ## Definition of done
 
 - [ ] Reviewed PR; CI green
-- [ ] Tests at the right level (`.claude/skills/testing-strategy/`), including failure paths
+- [ ] Tests at the right level (`.agents/skills/testing-strategy/`), including failure paths
 - [ ] README or service docs updated; ADR in `docs/decisions/` for meaningful decisions
 - [ ] API contract regenerated if routes or schemas changed (`openapi.json` + `schema.gen.ts`)
 - [ ] ML changes: evaluation report against the baseline, with dataset and model revisions recorded

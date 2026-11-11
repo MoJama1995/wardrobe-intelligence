@@ -9,8 +9,9 @@ description: Define and change Google Cloud infrastructure for Wardrobe Intellig
 
 - All resources are defined in Pulumi. No console changes. Ask the user before any `gcloud`
   command that creates, changes or deploys something.
-- **Claude never runs any `pulumi` command**, not even `preview` (denied in
-  `.claude/settings.json`). The user runs Pulumi. Claude never creates service-account keys.
+- **The coding agent never runs any `pulumi` command**, not even `preview` (Claude Code denies it
+  in `.claude/settings.json`; other agents must follow the rule themselves). The user runs Pulumi.
+  The agent never creates service-account keys.
 - Never add a resource without a cost estimate. **Recurring cost above about $10/month needs an ADR
   and explicit approval.**
 

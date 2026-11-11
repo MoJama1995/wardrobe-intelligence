@@ -6,7 +6,7 @@ Keep each kind of knowledge in its place, so readers know how much to trust it.
 | --- | --- | --- |
 | **Architectural decisions** | `docs/decisions/NNNN-*.md` (ADRs) | permanent; superseded, never edited away |
 | **Architecture overview** | `docs/architecture/` | kept current |
-| **Research findings** (dataset licences, model comparisons, cost research) | `docs/ml/`, `.claude/skills/gcp-infrastructure/cost-reference.md` | dated; re-verify before relying on them |
+| **Research findings** (dataset licences, model comparisons, cost research) | `docs/ml/`, `.agents/skills/gcp-infrastructure/cost-reference.md` | dated; re-verify before relying on them |
 | **Experiment records and evaluation reports** | `docs/ml/experiments/`, `docs/ml/evaluations/` | permanent, immutable once written |
 | **Implementation docs** (how to run or change a component) | the component's own `README.md` | kept current with the code |
 | **Development guides** | `docs/development/` | kept current |

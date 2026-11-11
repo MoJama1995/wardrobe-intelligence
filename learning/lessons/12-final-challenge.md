@@ -184,7 +184,7 @@ still worth having, now and after your model works.
 
 **Goal:** `services/api` gets `POST /analyses`. It validates the upload, removes its metadata,
 stores it under a random id, asks inference for the attributes (with a timeout), and returns the
-response you designed in Milestone 1. Follow the layers in `.claude/skills/api-development/SKILL.md`:
+response you designed in Milestone 1. Follow the layers in `.agents/skills/api-development/SKILL.md`:
 the route only wires things together, the business logic lives in a service function, and the
 outside world (disk, inference) sits behind small interfaces you can fake in tests.
 
@@ -261,7 +261,7 @@ real HTTP client's error handling, `httpx2.MockTransport` lets you script respon
 **Goal:** in the browser, choose a photo, press **Analyse** and see the attributes, with a sensible
 message for every state.
 
-Follow `.claude/skills/frontend-development/SKILL.md` and copy the pattern of
+Follow `.agents/skills/frontend-development/SKILL.md` and copy the pattern of
 `src/features/system-status/`: a typed client function, a hook that returns explicit states, a
 component that renders each state, and tests.
 
@@ -314,9 +314,9 @@ This is your area. The only requirement is that it fits the project's rules:
 | Rule | Where it comes from |
 | --- | --- |
 | Identified by an **immutable revision** (a Hub commit SHA, never `main`), set through `INFERENCE_MODEL_ID` and `INFERENCE_MODEL_REVISION` in `services/inference/.env` | `services/inference/app/config.py` |
-| A **licence** that allows our use. Check the model card, and look at the table in the cost reference | `.claude/skills/gcp-infrastructure/cost-reference.md` |
+| A **licence** that allows our use. Check the model card, and look at the table in the cost reference | `.agents/skills/gcp-infrastructure/cost-reference.md` |
 | ML dependencies only in `services/inference`, added with `uv add`. The API stays ML-free | ADR 0001, `docs/architecture/overview.md` |
-| No `trust_remote_code=True` (if a model needs it, pin the revision and review that code first) | `.claude/skills/model-packaging/SKILL.md` |
+| No `trust_remote_code=True` (if a model needs it, pin the revision and review that code first) | `.agents/skills/model-packaging/SKILL.md` |
 | Preprocessing and output parsing are plain, unit-tested functions. A malformed reply makes the model abstain (`null`); it doesn't crash | model-packaging skill |
 | Tests that load real weights are marked `@pytest.mark.model`, so `make test` skips them | `pyproject.toml` markers |
 | Weights never enter Git. They live in the Hugging Face cache on your laptop for now | `.gitignore`, `docs/ml/README.md` |
@@ -447,7 +447,7 @@ Your plan answers:
 <details>
 <summary>Hint</summary>
 
-Reread `docs/architecture/overview.md`, `.claude/skills/gcp-infrastructure/SKILL.md` and its
+Reread `docs/architecture/overview.md`, `.agents/skills/gcp-infrastructure/SKILL.md` and its
 `cost-reference.md`, and Lesson 11's diagrams. Pay attention to "scale to zero" and to what "minimum
 instances" costs for a GPU.
 </details>
@@ -468,7 +468,7 @@ An outline to plan from:
    (no GPU), which proves the deployment path without GPU costs.
 2. Write the cost estimate at idle (scale to zero) and for a day of testing. Agree on a budget alert.
 3. Your teammate adds the resources in Pulumi (Artifact Registry, two Cloud Run services, a private
-   uploads bucket, service accounts) following `.claude/skills/gcp-infrastructure/SKILL.md`. Photos
+   uploads bucket, service accounts) following `.agents/skills/gcp-infrastructure/SKILL.md`. Photos
    go to the bucket: Cloud Run's local disk disappears with the instance.
 4. A **human** runs `pulumi preview`, reads it together with the other developer, then `pulumi up -s dev`.
    Claude is denied every Pulumi command in this repository.

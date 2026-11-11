@@ -30,10 +30,10 @@ nobody would know which version is current.
 Claude loads when the task comes up.** It's a reusable, version-controlled, reviewable workflow.
 You write it once, and you and your teammate get the same behaviour every time.
 
-Each skill is a folder in `.claude/skills/` containing a `SKILL.md` file:
+Each skill is a folder in `.agents/skills/` containing a `SKILL.md` file:
 
 ```
-.claude/skills/
+.agents/skills/
 ├── pr-review/
 │   └── SKILL.md
 ├── ml-experimentation/
@@ -96,10 +96,10 @@ where it costs nothing until it's needed.
 In the repository:
 
 ```bash
-ls .claude/skills
+ls .agents/skills
 ```
 
-Open [`.claude/skills/pr-review/SKILL.md`](../../.claude/skills/pr-review/SKILL.md) and answer for
+Open [`.agents/skills/pr-review/SKILL.md`](../../.agents/skills/pr-review/SKILL.md) and answer for
 yourself:
 
 1. What does the description say about *when* to use it?
@@ -186,8 +186,8 @@ Pick a small, recurring task that *you* do. Ideas:
   teammate
 - something from your own work that you find yourself explaining or checking repeatedly
 
-1. Check the name isn't already used: `ls .claude/skills`.
-2. Create `.claude/skills/<your-skill-name>/SKILL.md` with this skeleton, and fill in every
+1. Check the name isn't already used: `ls .agents/skills`.
+2. Create `.agents/skills/<your-skill-name>/SKILL.md` with this skeleton, and fill in every
    `<...>`:
 
    ```markdown
@@ -258,9 +258,9 @@ instead of a dozen skill folders?" Explain the difference and when you'd use eac
 
 | I want to... | Do this |
 | --- | --- |
-| see our skills | `ls .claude/skills` |
+| see our skills | `ls .agents/skills` |
 | use a skill directly | `/<skill-name>`, e.g. `/pr-review` |
-| create a skill | `.claude/skills/<name>/SKILL.md` with `name` and `description` frontmatter |
+| create a skill | `.agents/skills/<name>/SKILL.md` with `name` and `description` frontmatter |
 | add a template | put it beside `SKILL.md` and link to it from the body |
 | make a skill trigger reliably | improve its `description`: what it does, plus when to use it |
 | pick up a new skill | start a new Claude session |

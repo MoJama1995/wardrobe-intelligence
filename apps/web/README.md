@@ -26,7 +26,7 @@ npm run build
 `src/features/system-status/` is the reference pattern: a hook with explicit states, a component
 that renders each state, and tests for each.
 
-Conventions: `.claude/skills/frontend-development/SKILL.md`.
+Conventions: `.agents/skills/frontend-development/SKILL.md`.
 
 ## Configuration
 

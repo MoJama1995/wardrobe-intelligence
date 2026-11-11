@@ -384,7 +384,7 @@ matter a lot between services:
   API gives up after a set time and returns a clear error.
 - **Translate failures.** If inference is down, the API returns `503` with a code such as
   `inference_unavailable`. If it's too slow, `504`. It never passes on a raw stack trace
-  (`.claude/skills/api-development/SKILL.md`).
+  (`.agents/skills/api-development/SKILL.md`).
 
 ADR 0003 also says that this boundary will get the same treatment as the frontend's: a generated,
 tested contract between the API and inference.
@@ -476,7 +476,7 @@ To compare and search values reliably, we need a canonical form.
 
 **Steps:**
 
-1. Read `.claude/skills/api-development/SKILL.md` ("Layout" and "Rules"). Put the request and
+1. Read `.agents/skills/api-development/SKILL.md` ("Layout" and "Rules"). Put the request and
    response models in `app/schemas/`, the normalising function in `app/services/`, and the route in
    `app/api/`. Register the router in `app/main.py`.
 2. Write tests in `services/api/tests/`: one for the function on its own, one for a successful

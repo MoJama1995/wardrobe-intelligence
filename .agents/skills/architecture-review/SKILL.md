@@ -41,7 +41,7 @@ infrastructure/  (Pulumi only, imports nothing from the apps)
    services need identical code *and* duplication has caused a bug.
 4. **Cost and operations.** Ask what runs while idle (min instances, GPUs), what grows (storage,
    logs) and what crosses regions (egress). Estimate the monthly cost at dev usage and at idle;
-   see `.claude/skills/gcp-infrastructure/cost-reference.md`.
+   see `.agents/skills/gcp-infrastructure/cost-reference.md`.
 5. **Failure modes.** Cover inference that is cold, slow or down; timeouts, retries and idempotency;
    what the user sees in each case.
 6. **Privacy.** Where photos are stored, who can read them, retention and deletion, whether EXIF is

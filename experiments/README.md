@@ -33,7 +33,7 @@ random.seed(SEED); np.random.seed(SEED); torch.manual_seed(SEED)
 print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU")
 ```
 
-Then follow `.claude/skills/ml-experimentation/SKILL.md`: baseline first, change one thing, score
+Then follow `.agents/skills/ml-experimentation/SKILL.md`: baseline first, change one thing, score
 with `ai_evaluation`, and write the record in `docs/ml/experiments/`.
 
 ## Secrets in Colab

@@ -34,7 +34,7 @@ Without access, you copy and paste between them: you paste the card text into Cl
 its answer back to the card. With access, you could ask: "What's on my board for this week, and
 which card should I pick up first given what's already merged?"
 
-> Our [`project-management`](../../.claude/skills/project-management/SKILL.md) skill currently
+> Our [`project-management`](../../.agents/skills/project-management/SKILL.md) skill currently
 > tracks work in GitHub Issues with a Project board. Trello and GitHub are connected to an agent in
 > exactly the same way. Which one the team uses is your and your teammate's decision.
 
@@ -133,7 +133,7 @@ Giving an agent a token is giving it your hands. Four reasons to be careful:
 
 1. **Mistakes at machine speed.** An agent can make ten wrong changes before you finish reading
    the first one. In the cloud, one wrong change can be expensive: our
-   [`architecture-review`](../../.claude/skills/architecture-review/SKILL.md) skill notes that one
+   [`architecture-review`](../../.agents/skills/architecture-review/SKILL.md) skill notes that one
    idle L4 GPU left at `min_instances=1` costs roughly $770 a month.
 2. **Prompt injection.** The agent reads data: card descriptions, ticket comments, log lines. Data
    can contain text that *looks like instructions*, and a language model can follow it. Someone

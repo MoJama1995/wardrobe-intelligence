@@ -9,7 +9,7 @@ loaded yet.
 ## Open decisions (each needs an ADR before code)
 
 1. **Baseline model:** chosen from Colab results on our eval set. Licence-checked candidates are
-   listed in `.claude/skills/gcp-infrastructure/cost-reference.md`.
+   listed in `.agents/skills/gcp-infrastructure/cost-reference.md`.
 2. **Serving runtime:** plain Transformers vs vLLM; precision and quantisation.
 3. **Hosting:** Cloud Run with an L4 GPU is the default candidate. Measure cold start (container
    start + weight download + load) before committing.
@@ -35,4 +35,4 @@ run in CI or in `make test`.
 `INFERENCE_MODEL_ID` and `INFERENCE_MODEL_REVISION` (an immutable revision, never `main`). See
 `.env.example`.
 
-Conventions: `.claude/skills/model-packaging/SKILL.md`.
+Conventions: `.agents/skills/model-packaging/SKILL.md`.

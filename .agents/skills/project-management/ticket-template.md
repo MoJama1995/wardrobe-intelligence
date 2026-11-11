@@ -22,7 +22,7 @@
 
 ## Definition of done
 
-Global DoD in `.claude/skills/project-management/SKILL.md`, plus: <ticket-specific checks>
+Global DoD in `.agents/skills/project-management/SKILL.md`, plus: <ticket-specific checks>
 
 ## Learning note for the reviewer
 

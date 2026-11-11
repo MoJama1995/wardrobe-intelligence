@@ -9,7 +9,7 @@ description: Decide what to test and at which level for Wardrobe Intelligence (u
 
 | Dimension | Question | Tool / location | Runs |
 | --- | --- | --- | --- |
-| Software correctness | Does the code do what it claims? | pytest, Vitest, contract tests | before Claude finishes a task, every PR (CI) |
+| Software correctness | Does the code do what it claims? | pytest, Vitest, contract tests | before the agent finishes a task, every PR (CI) |
 | Model quality | Are predictions good enough? | `packages/ai-evaluation` + eval reports | per experiment / model release (Colab, GPU job). **Not CI** |
 | Model performance | Latency, memory, cost | benchmark on target hardware (L4) | per model release |
 | Infrastructure reliability | Does the deployed system work? | infra unit tests, `pulumi preview`, post-deploy `/health` smoke test | PR + every deploy |

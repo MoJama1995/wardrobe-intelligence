@@ -20,7 +20,8 @@ experiments/              Colab notebooks and experiment configs (research only)
 infrastructure/           Pulumi (Python) program for Google Cloud
 docs/                     Architecture, ADRs, ML records, development guides
 learning/                 Hands-on engineering course built around this repository
-.claude/                  Claude Code skills and settings
+.agents/skills/           Agent skills (Claude Code and Codex)
+.claude/                  Claude Code settings; skills symlink to .agents/skills
 ```
 
 Each project builds and tests independently. Dependencies only point one way (see

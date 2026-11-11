@@ -28,7 +28,7 @@ For our product, the prompt isn't decoration. The same weights with a different 
 different attributes, different abstentions and different hallucinations. A prompt change is a
 model change, and it gets the same treatment: a version, a comparison with the baseline, a
 decision. That's also why our model release manifest records the prompt version
-([`manifest.md`](../../.claude/skills/model-packaging/manifest.md), the `"prompt"` field).
+([`manifest.md`](../../.agents/skills/model-packaging/manifest.md), the `"prompt"` field).
 
 ### Two versions of the same prompt
 
@@ -120,7 +120,7 @@ output**: they change together. Then record the version wherever results are rec
 configs in `experiments/configs/`, evaluation reports, and the model release manifest.
 
 In our repository there's no product prompt yet: it arrives with the model. The
-[`model-packaging`](../../.claude/skills/model-packaging/SKILL.md) skill says it will live in
+[`model-packaging`](../../.agents/skills/model-packaging/SKILL.md) skill says it will live in
 `services/inference/app/` as a versioned constant, alongside preprocessing and output parsing, all
 unit-tested.
 
@@ -341,7 +341,7 @@ up. They have different readers and different stakes:
 | | Skill | Product prompt (application code) |
 | --- | --- | --- |
 | **Read by** | Claude Code, helping you and your teammate build | our product's model, answering users |
-| **Lives in** | `.claude/skills/<name>/SKILL.md` | `services/inference/app/` (planned), next to its parser |
+| **Lives in** | `.agents/skills/<name>/SKILL.md` | `services/inference/app/` (planned), next to its parser |
 | **Versioned by** | Git and PR review | Git, plus a prompt version id recorded in experiments, evaluation reports and the release manifest |
 | **Tested by** | trying it and reviewing what it produces | unit tests, a golden set, and an evaluation against the baseline |
 | **A change means** | your workflow works differently | users see different results: it's a model change |

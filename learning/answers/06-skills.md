@@ -61,7 +61,7 @@ main job is triggering.
   and example phrases you'd naturally use. Start a new session and test again with natural
   phrasings, plus one unrelated request that should *not* trigger it.
 
-**Also check:** the file is at `.claude/skills/<name>/SKILL.md`, the frontmatter is between `---`
+**Also check:** the file is at `.agents/skills/<name>/SKILL.md`, the frontmatter is between `---`
 lines with `name` and `description`, and you started a new session after creating it.
 
 ---

@@ -103,7 +103,7 @@ Lesson 1, and your first API endpoint in Lesson 3.
    it, and how they work together.
 5. **Claude Code:** how coding agents work in a repository, our guardrails, giving context,
    planning before building, reviewing what they produce, and their limits.
-6. **Skills:** reusable workflows for agents, using the ones in `.claude/skills/`. You write one of
+6. **Skills:** reusable workflows for agents, using the ones in `.agents/skills/`. You write one of
    your own.
 7. **MCP:** how agents reach external tools (a Trello board, Google Cloud), and why permissions and
    credentials matter.
@@ -174,4 +174,4 @@ teammate.
 | `PROGRESS.md` | your progress, updated through pull requests |
 | `app/` | the web viewer (React + TypeScript, separate from the product's `apps/web`) |
 | [`AUTHORING.md`](AUTHORING.md) | conventions for writing or changing lessons. The viewer depends on them; check with `cd app && npm run check-content` |
-| `.claude/skills/tutor/` (repository root) | the mentor-mode skill |
+| `.agents/skills/tutor/` (repository root) | the mentor-mode skill |

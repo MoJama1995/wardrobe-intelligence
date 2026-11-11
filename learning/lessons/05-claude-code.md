@@ -248,7 +248,7 @@ doesn't, and say what could go wrong without each one.
 ### Break the work down
 
 Agents do best with tasks that are small, clear and checkable. That's the same advice our
-[`project-management`](../../.claude/skills/project-management/SKILL.md) skill gives for people:
+[`project-management`](../../.agents/skills/project-management/SKILL.md) skill gives for people:
 slice work **vertically**, a thin end-to-end path first (fake model → real API → UI), then deepen
 it. "Build all the endpoints" is a bad task for anyone. "A photo upload returns fixed fake
 attributes through the API" is a good one.

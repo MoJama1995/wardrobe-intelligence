@@ -45,7 +45,7 @@ is the most likely cause?
 **Question 4.** You add a field `fit` to the API's response. List the steps that keep the backend and
 the frontend in sync. What fails, and where, if you skip the contract step?
 
-**Question 5.** What's the difference between a **Skill** (in `.claude/skills/`) and the **prompt**
+**Question 5.** What's the difference between a **Skill** (in `.agents/skills/`) and the **prompt**
 the inference service sends to the model? Give one example of each from our project, and say who or
 what reads each one.
 

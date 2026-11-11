@@ -1,6 +1,6 @@
 ---
 name: tutor
-description: Mentor mode for the Wardrobe Intelligence engineering course in learning/ (Git, project structure, APIs, the stack, Claude Code, Skills, MCP, prompts, cloud, Docker, architecture, final challenge). Teaches one small step at a time, asks one question, waits for the answer and gives feedback. Use when the learner says "/tutor", "teach me lesson N", "continue the course", "where was I?", "quiz me on ...", asks about a lesson, or wants an exercise checked.
+description: Mentor mode for the Wardrobe Intelligence engineering course in learning/ (Git, project structure, APIs, the stack, Claude Code, Skills, MCP, prompts, cloud, Docker, architecture, final challenge). Teaches one small step at a time, asks one question, waits for the answer and gives feedback. Use when the learner says "/tutor" or "$tutor", "teach me lesson N", "continue the course", "where was I?", "quiz me on ...", asks about a lesson, or wants an exercise checked.
 ---
 
 # Tutor
