@@ -1,7 +1,8 @@
 # Lesson 10 answer key: Docker
 
 > **Write your own answer first.** Reading an answer feels like understanding, but explaining it
-> yourself is what makes it stick. If your answer differs, that's useful: ask `/tutor` why.
+> yourself is what makes it stick. If your answer differs, that's useful: ask the tutor why
+> (`/tutor` or `$tutor`).
 
 Each entry lists what a good answer includes and the usual misconceptions. Your wording doesn't
 have to match.
@@ -119,7 +120,7 @@ wrong port makes Cloud Run report that the container didn't start listening on `
    Dockerfile and produces an image: on a laptop, or (planned) in GitHub Actions.
 2. **Tag:** name it with the registry path and the commit SHA, such as
    `europe-west1-docker.pkg.dev/<project>/<repo>/api:<sha>`. Never just `latest`.
-3. **Push:** `docker push` uploads it to Artifact Registry (CI or a human; Claude asks first).
+3. **Push:** `docker push` uploads it to Artifact Registry (CI or a human; an agent must ask first).
 4. **Deploy:** Cloud Run is told to run that exact image (through Pulumi or `gcloud run deploy`).
 5. **Pull and run:** Cloud Run pulls the image and starts containers, setting `PORT`, which the `CMD`
    passes to uvicorn, along with environment variables such as `API_ENVIRONMENT` from the service's

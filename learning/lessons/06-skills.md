@@ -1,17 +1,17 @@
-# Lesson 6: Claude Skills
+# Lesson 6: Agent Skills
 
 **Time:** about 1 hour, in three parts (A–C), plus a challenge.
 
 **By the end you can:**
 
-- explain what a Skill is and how Claude decides when to use one
-- say how a Skill differs from a one-off prompt and from `CLAUDE.md`
+- explain what a Skill is and how the agent decides when to use one
+- say how a Skill differs from a one-off prompt and from `AGENTS.md`
 - read our skills and recognise the pattern they share
 - write, organise and test a small Skill of your own
 
 | You need now | You can learn later |
 | --- | --- |
-| `SKILL.md` with `name` and `description`, when skills load, invoking one with `/name`, supporting files, writing a good description | scripts bundled inside skills, sharing skills across repositories (plugins), measuring how well a skill works |
+| `SKILL.md` with `name` and `description`, when skills load, invoking one directly (`/name` or `$name`), supporting files, writing a good description | scripts bundled inside skills, sharing skills across repositories (plugins), measuring how well a skill works |
 
 ---
 
@@ -20,14 +20,14 @@
 ### The problem
 
 Say you want every review to check our project's standards: secrets, EXIF stripping, pinned model
-revisions, contracts regenerated, and the rest. You could paste that checklist into Claude every
-time. Then you'd forget an item, your teammate would use a slightly different list, and in a month
+revisions, contracts regenerated, and the rest. You could paste that checklist into the agent
+every time. Then you'd forget an item, your teammate would use a slightly different list, and in a month
 nobody would know which version is current.
 
 ### The idea
 
 **A Skill is a set of instructions for a recurring task, saved as a file in the repository, that
-Claude loads when the task comes up.** It's a reusable, version-controlled, reviewable workflow.
+the agent loads when the task comes up.** It's a reusable, version-controlled, reviewable workflow.
 You write it once, and you and your teammate get the same behaviour every time.
 
 Each skill is a folder in `.agents/skills/` containing a `SKILL.md` file:
@@ -42,6 +42,11 @@ Each skill is a folder in `.agents/skills/` containing a `SKILL.md` file:
 └── tutor/
     └── SKILL.md
 ```
+
+Skills are an open format, so Claude Code and Codex use the same files. Codex reads
+`.agents/skills/` directly. Claude Code reads `.claude/skills/`, which in our repository is a
+*symlink* (a link that points to another folder) to `.agents/skills/`. Always edit the files in
+`.agents/skills/`.
 
 `SKILL.md` starts with a short header (YAML "frontmatter") followed by Markdown instructions:
 
@@ -61,9 +66,9 @@ Each skill is a folder in `.agents/skills/` containing a `SKILL.md` file:
 
 (Shortened here. In the real file, the description is one long line, and yours should be too.)
 
-### How Claude uses a skill
+### How the agent uses a skill
 
-Claude doesn't read every skill in full all the time. That would fill its context with
+The agent doesn't read every skill in full all the time. That would fill its context with
 instructions it doesn't need. It works in three levels:
 
 ```
@@ -75,20 +80,20 @@ instructions it doesn't need. It works in three levels:
 ```
 
 A skill's body is loaded when your request matches its **description**, or when you invoke it
-directly by typing `/` followed by its name, for example `/pr-review`. So the description does real
-work: it's how Claude recognises when the skill applies. Our descriptions say what the skill does
+directly: type `/pr-review` in Claude Code, or `$pr-review` in Codex (where `/skills` also lists
+them). So the description does real work: it's how the agent recognises when the skill applies. Our descriptions say what the skill does
 **and when to use it**, often with example phrases (look at the `tutor` description).
 
-### Skills compared with prompts and `CLAUDE.md`
+### Skills compared with prompts and `AGENTS.md`
 
-| | One-off prompt | `CLAUDE.md` | Skill |
+| | One-off prompt | `AGENTS.md` | Skill |
 | --- | --- | --- | --- |
-| **Loaded** | only in that message | at the start of every session | when the task matches, or via `/name` |
+| **Loaded** | only in that message | at the start of every session | when the task matches, or via `/name` or `$name` |
 | **Best for** | this task, today | short rules that always apply ("never commit to `main`") | detailed workflows for recurring tasks |
 | **Shared with the team** | no | yes (in Git) | yes (in Git) |
 | **Reviewed and versioned** | no | yes | yes |
 
-Keep `CLAUDE.md` short, because everything in it is read every session. Detail belongs in skills,
+Keep `AGENTS.md` short, because everything in it is read every session. Detail belongs in skills,
 where it costs nothing until it's needed.
 
 ### Exercise A1: read our skills (10 minutes)
@@ -110,10 +115,11 @@ yourself:
 **Question 1.** What job does a skill's `description` do? What would happen if a skill's
 description were just "Review"?
 
-**Question 2.** When does Claude load the *body* of the `model-evaluation` skill?
+**Question 2.** When does the agent load the *body* of the `model-evaluation` skill?
 
-- a) at the start of every session, along with `CLAUDE.md`
-- b) when a request matches its description, or when you type `/model-evaluation`
+- a) at the start of every session, along with `AGENTS.md`
+- b) when a request matches its description, or when you invoke it directly (`/model-evaluation`
+  or `$model-evaluation`)
 - c) only when you edit a file in `packages/ai-evaluation`
 - d) never: you have to paste it into the chat
 
@@ -123,7 +129,7 @@ description were just "Review"?
 
 ### What our skills encode
 
-Our skills aren't generic advice. They write down **our team's standards**, so Claude applies them
+Our skills aren't generic advice. They write down **our team's standards**, so the agent applies them
 consistently:
 
 | Skill | What it makes consistent |
@@ -150,14 +156,14 @@ report template does.
 
 ### Exercise B1: use a skill (10 minutes)
 
-Go back to your `learning/claude-code` branch from Lesson 5 and start Claude:
+Go back to your `learning/coding-agent` branch from Lesson 5 and start your agent:
 
 ```bash
-git switch learning/claude-code
-claude
+git switch learning/coding-agent
+claude           # or: codex
 ```
 
-Type `/pr-review`. Let it review your `format_scores` change. Then compare its review with the
+Type `/pr-review` (Claude Code) or `$pr-review` (Codex). Let it review your `format_scores` change. Then compare its review with the
 notes you wrote in Lesson 5, Exercise C2. What did it find that you didn't, and the other way
 round? Did its output follow the format in the skill's **Required output** section?
 
@@ -212,10 +218,10 @@ Pick a small, recurring task that *you* do. Ideas:
    - <mistake>
    ```
 
-3. **Test it.** Exit Claude (`/exit`, or Ctrl+C twice) and start a new session with `claude`, so
-   the new skill is picked up. Then:
+3. **Test it.** Exit the agent (`/exit`) and start a new session (`claude` or `codex`), so the
+   new skill is picked up. Then:
    - ask something that **should** trigger it, phrased naturally, without naming the skill
-   - type `/<your-skill-name>` to invoke it directly
+   - invoke it directly: `/<your-skill-name>` in Claude Code, `$<your-skill-name>` in Codex
    - ask something unrelated that should **not** trigger it
 
 4. If it didn't trigger when it should have (or did when it shouldn't), improve the
@@ -224,7 +230,8 @@ Pick a small, recurring task that *you* do. Ideas:
 5. Commit it yourself on your branch. Whether it becomes part of the project is a conversation with
    your teammate, through a PR.
 
-**Question 4.** Your skill didn't trigger when you asked naturally, but `/your-skill-name` worked.
+**Question 4.** Your skill didn't trigger when you asked naturally, but invoking it directly
+(`/your-skill-name` or `$your-skill-name`) worked.
 What's the most likely cause, and what do you change?
 
 ---
@@ -251,7 +258,7 @@ preprocessing, decoding settings, hardware, and what gets compared with what.
 
 ## Wrap-up
 
-**Question 5 (explain it back).** Your teammate asks: "Why not put all of this in `CLAUDE.md`
+**Question 5 (explain it back).** Your teammate asks: "Why not put all of this in `AGENTS.md`
 instead of a dozen skill folders?" Explain the difference and when you'd use each one.
 
 ### Cheat sheet
@@ -259,19 +266,20 @@ instead of a dozen skill folders?" Explain the difference and when you'd use eac
 | I want to... | Do this |
 | --- | --- |
 | see our skills | `ls .agents/skills` |
-| use a skill directly | `/<skill-name>`, e.g. `/pr-review` |
+| use a skill directly | `/<skill-name>` in Claude Code, `$<skill-name>` in Codex, e.g. `/pr-review` |
 | create a skill | `.agents/skills/<name>/SKILL.md` with `name` and `description` frontmatter |
 | add a template | put it beside `SKILL.md` and link to it from the body |
 | make a skill trigger reliably | improve its `description`: what it does, plus when to use it |
-| pick up a new skill | start a new Claude session |
+| pick up a new skill | start a new agent session |
 
 ### Done when
 
 - [ ] Exercises A1, B1 and C1 are done
-- [ ] Your own skill triggers from a natural request and with `/name`, and doesn't trigger on an
-      unrelated one
+- [ ] Your own skill triggers from a natural request and when invoked directly, and doesn't
+      trigger on an unrelated one
 - [ ] You've written answers to Questions 1–5 and compared them with the
-      [answer key](../answers/06-skills.md), or talked them through with `/tutor`
+      [answer key](../answers/06-skills.md), or talked them through with the tutor
+      (`/tutor` or `$tutor`)
 
 Next: **Lesson 7, MCP and external tools.** You'll see how agents reach beyond the repository,
 and why that needs careful permissions.

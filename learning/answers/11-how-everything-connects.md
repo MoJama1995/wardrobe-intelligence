@@ -1,7 +1,8 @@
 # Lesson 11 answer key: How everything connects
 
 > **Write your own answer first.** Reading an answer feels like understanding, but explaining it
-> yourself is what makes it stick. If your answer differs, that's useful: ask `/tutor` why.
+> yourself is what makes it stick. If your answer differs, that's useful: ask the tutor why
+> (`/tutor` or `$tutor`).
 
 Each entry lists what a good answer includes and the usual misconceptions. Your wording doesn't
 have to match.
@@ -78,7 +79,8 @@ only runs the image it was given (d).
   previous revisions, so a bad deploy can be reverted to the last good revision.
 - **`pulumi preview` needs a human judgement:** checking deletes and replaces, IAM changes and the
   cost estimate is a review, not a test that passes or fails.
-- **Claude can't run Pulumi in this repository** (`.claude/settings.json`). It's a deliberate project
+- **The coding agent mustn't run Pulumi in this repository** (`AGENTS.md`; Claude Code also blocks
+  it in `.claude/settings.json`). It's a deliberate project
   rule: an agent can prepare the code and explain the preview, but a person makes the change.
 
 ---

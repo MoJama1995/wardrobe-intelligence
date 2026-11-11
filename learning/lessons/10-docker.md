@@ -520,8 +520,8 @@ The flow, which Lesson 11 puts together:
 ```
 
 `docker push` sends an image to a registry. You won't push in this lesson. Pushing to our registry
-will be done by CI (Lesson 11) or by you together with your teammate, and Claude Code always asks
-before running `docker push` in this repository.
+will be done by CI (Lesson 11) or by you together with your teammate, and a coding agent must always
+ask before running `docker push` in this repository.
 
 <details>
 <summary><strong>Go deeper:</strong> what changes for the GPU inference image</summary>
@@ -612,7 +612,8 @@ how the container learns its port and configuration.
 - [ ] The real API image builds, runs and answers `/health` (D1), and you know its architecture (E1)
 - [ ] The inference challenge is done
 - [ ] You've written answers to Questions 1–8 and compared them with the
-      [answer key](../answers/10-docker.md), or talked them through with `/tutor`
+      [answer key](../answers/10-docker.md), or talked them through with the tutor
+      (`/tutor` or `$tutor`)
 - [ ] You can explain every line of `services/api/Dockerfile` without notes
 
 Delete your practice branch when you're done (`git switch main`, then `git branch -D learning/docker`).

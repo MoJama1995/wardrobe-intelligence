@@ -1,7 +1,8 @@
 # Lesson 0 answer key: Set up your laptop and the project
 
 > **Write your own answer first.** Reading an answer feels like understanding, but explaining it
-> yourself is what makes it stick. If your answer differs, that's useful: ask `/tutor` why.
+> yourself is what makes it stick. If your answer differs, that's useful: ask the tutor why
+> (`/tutor` or `$tutor`).
 
 ### Question 1: who installs FastAPI, and where?
 

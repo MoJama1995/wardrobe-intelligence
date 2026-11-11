@@ -301,7 +301,7 @@ see the fix?
 - d) nothing: Cloud Run reads the latest code from GitHub automatically
 
 **Question 5.** In our plan, CI builds and pushes images automatically, but a human runs `pulumi up`,
-and Claude Code isn't allowed to run Pulumi at all. Why treat infrastructure changes more carefully
+and the coding agent isn't allowed to run Pulumi at all. Why treat infrastructure changes more carefully
 than code changes?
 
 ---
@@ -466,7 +466,8 @@ this lesson in the order it's used.
 
 - [ ] Exercises A1, B1, C1, D1, E1 and E2 are done
 - [ ] You've written answers to Questions 1–8 and compared them with the
-      [answer key](../answers/11-how-everything-connects.md), or talked them through with `/tutor`
+      [answer key](../answers/11-how-everything-connects.md), or talked them through with the tutor
+      (`/tutor` or `$tutor`)
 - [ ] You can draw the Part A diagram from memory and walk the seven steps without notes
 - [ ] Your teammate has seen your deployment plan
 

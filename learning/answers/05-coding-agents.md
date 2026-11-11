@@ -1,7 +1,8 @@
-# Lesson 5 answer key: Working with Claude Code
+# Lesson 5 answer key: Working with a coding agent
 
 > **Write your own answer first.** Reading an answer feels like understanding, but explaining it
-> yourself is what makes it stick. If your answer differs, that's useful: ask `/tutor` why.
+> yourself is what makes it stick. If your answer differs, that's useful: ask the tutor why
+> (`/tutor` or `$tutor`).
 
 Each entry lists what a good answer includes and the usual misconceptions. Your wording doesn't
 have to match.
@@ -25,21 +26,25 @@ yourself.
 
 ---
 
-### Question 2: what Claude can do without asking
+### Question 2: what the agent may do without asking
 
-**Answer: b).** `uv run pytest` is in the **allow** list of `.claude/settings.json`, because
-running checks is safe and useful.
+**Answer: b).** Running the checks (`uv run pytest` and the others) is in the **run freely** group
+of our rules, because it's safe and useful.
 
-- a) `git commit` is **denied**: you commit, Claude suggests the message.
-- c) every `pulumi` command is **denied**, `preview` included: Pulumi talks to real cloud
+- a) `git commit` is **never**: you commit, the agent suggests the message.
+- c) every `pulumi` command is **never**, `preview` included: Pulumi talks to real cloud
   resources, so you run it yourself.
-- d) `git push` **asks every time**: it publishes your branch to GitHub.
+- d) `git push` is **ask first**: it publishes your branch to GitHub.
+
+**Where the answer comes from:** the rules are written in `AGENTS.md`. Claude Code also enforces
+them through `.claude/settings.json` (allow, ask and deny lists). Codex reads them from `AGENTS.md`
+as instructions only, so in Codex the prompt you approve or refuse is the real check.
 
 ---
 
-### Question 3: "ask" instead of "never" for commits
+### Question 3: "ask first" instead of "never" for commits
 
-**For:** it saves a step. Claude could commit right after you've reviewed, with a well-written
+**For:** it saves a step. The agent could commit right after you've reviewed, with a well-written
 message, and you still approve every commit.
 
 **Against (any of these):**
@@ -50,9 +55,9 @@ message, and you still approve every commit.
   most while you're learning.
 - A commit is your signature on the change. It should be a deliberate human act.
 
-There's no single right answer; this is a team decision. If you change the rule, change it in
-`.claude/settings.json` through a reviewed PR, and update `CLAUDE.md` and
-`docs/development/claude-code.md` to match.
+There's no single right answer; this is a team decision. If you change the rule, change it through
+a reviewed PR everywhere it lives: `AGENTS.md` (read by both agents), `.claude/settings.json`
+(Claude Code's enforcement) and `docs/development/claude-code.md`.
 
 ---
 
@@ -69,7 +74,7 @@ There's no single right answer; this is a team decision. If you change the rule,
 - Only then commit.
 
 **Why:** agents can misread output, run the tests for the wrong project, or summarise
-optimistically. Our `CLAUDE.md` tells Claude never to claim checks passed without running them,
+optimistically. Our `AGENTS.md` tells the agent never to claim checks passed without running them,
 but you're the final check.
 
 ---
@@ -99,7 +104,7 @@ but you're the final check.
 - Why: the API is meant to be a small, cheap CPU service that starts fast. `torch` adds gigabytes
   to its image and slows every deployment. And if preprocessing lives in two places, the API's
   copy and the model's copy drift apart, which is a classic cause of "worse in production".
-- Where it's written: `CLAUDE.md` (the map says "FastAPI public API, no ML dependencies"),
+- Where it's written: `AGENTS.md` (the map says "FastAPI public API, no ML dependencies"),
   `services/api/pyproject.toml` (its description), the `architecture-review` skill's boundaries,
   and `docs/architecture/overview.md`.
 - The API may still validate the upload (file type, size) without ML libraries. That's a different
@@ -112,19 +117,19 @@ but you're the final check.
 **A good answer covers:**
 
 1. **You:** `git switch main`, `git pull`, `git switch -c feat/<metric-name>` (or `learning/...`
-   for practice). Start `claude` from the repository root.
+   for practice). Start the agent (`claude` or `codex`) from the repository root.
 2. **You:** write a precise request: where (`packages/ai-evaluation`), the function signature, the
    edge cases (empty input, `None`, abstentions), constraints (pure function, no new dependencies,
    no change to existing metrics), and done-when (tests pass, ruff and mypy clean). Point at files
    with `@`.
-3. **Claude, in plan mode:** reads the package and proposes a plan. **You:** check that it matches
-   what you meant, correct it, then approve.
-4. **Claude:** implements, runs the checks (allowed without asking), shows the output and suggests
-   a commit message.
+3. **The agent, in plan mode:** reads the package and proposes a plan. **You:** check that it
+   matches what you meant, correct it, then approve.
+4. **The agent:** implements, runs the checks (our rules let it run them freely), shows the output
+   and suggests a commit message.
 5. **You:** review: `git status`, `git diff`, read the tests, run the checks yourself. Ask "why"
    about anything unclear, and ask for changes.
-6. **You:** commit (Claude can't), push (Claude would have to ask), open a PR. Your teammate
-   reviews.
+6. **You:** commit (the agent mustn't; Claude Code blocks it), push (the agent would have to ask),
+   open a PR. Your teammate reviews.
 
 The ML judgement stays yours: is the metric right for the decision it supports, and are the
 denominators honest (see the `model-evaluation` skill)?

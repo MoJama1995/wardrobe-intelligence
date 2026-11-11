@@ -523,8 +523,9 @@ explain why you'd keep it as it is.
    created a new commit instead of reusing yours. Once you've checked on GitHub that the PR shows
    **Merged**, delete the branch with `git branch -D docs/lesson-1-progress`.
 
-> **About Claude Code in this repository:** Claude isn't allowed to run `git commit` here at all,
-> and it asks you before every `git push`. Those rules live in `.claude/settings.json` (Lesson 5).
+> **About coding agents in this repository:** an agent must never run `git commit` here, and it
+> must ask you before every `git push`. Those rules live in `AGENTS.md`, and Claude Code also
+> enforces them in `.claude/settings.json` (Lesson 5).
 > In this lesson, you run every command yourself.
 
 **Question 4.** You've committed but not pushed. Who can see your commit?
@@ -680,7 +681,7 @@ In `~/git-practice`, without editing any file by hand:
 <details>
 <summary>Hint 3</summary>
 
-`git restore` can take a `--source` option. Try `git restore --help`, or ask Claude what it does.
+`git restore` can take a `--source` option. Try `git restore --help`, or ask your coding agent what it does.
 </details>
 
 ---
@@ -708,7 +709,8 @@ step exists.
 - [ ] Exercises A1, B1, B2, C1 and E1 are done in `~/git-practice`
 - [ ] Your first pull request (D1) is merged
 - [ ] You've written answers to Questions 1–9 and compared them with the
-      [answer key](../answers/01-git.md), or talked them through with `/tutor`
+      [answer key](../answers/01-git.md), or talked them through with the tutor
+      (`/tutor` or `$tutor`)
 - [ ] You can explain the workflow diagram in Part D without looking
 
 Next: **Lesson 2, Project structure and architecture.** You'll find your way around the repository

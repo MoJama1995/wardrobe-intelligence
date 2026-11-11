@@ -13,7 +13,8 @@ interface Props {
 
 const TutorHint = () => (
   <p className="hint">
-    For a discussion, ask <code>/tutor</code> in Claude Code.
+    For a discussion, ask the tutor: <code>/tutor</code> in Claude Code, <code>$tutor</code> in
+    Codex.
   </p>
 )
 

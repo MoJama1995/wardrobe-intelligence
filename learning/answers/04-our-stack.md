@@ -1,7 +1,8 @@
 # Lesson 4 answer key: Our technical stack
 
 > **Write your own answer first.** Reading an answer feels like understanding, but explaining it
-> yourself is what makes it stick. If your answer differs, that's useful: ask `/tutor` why.
+> yourself is what makes it stick. If your answer differs, that's useful: ask the tutor why
+> (`/tutor` or `$tutor`).
 
 Each entry lists what a good answer includes and the usual misconceptions. Your wording doesn't
 have to match.
@@ -18,7 +19,7 @@ have to match.
   image. Adding PyTorch now would probably mean redoing it later.
 - **Cost today:** gigabytes of downloads in every `uv sync`, a much larger lockfile and Docker image,
   and slower CI and builds, all for code that doesn't exist yet.
-- It follows the project rule "add dependencies only for a demonstrated need" (`CLAUDE.md`). The
+- It follows the project rule "add dependencies only for a demonstrated need" (`AGENTS.md`). The
   dependency arrives together with the ADR that justifies it.
 
 ---
@@ -121,7 +122,7 @@ simpler. The split is what keeps the API small, cheap and easy to change.
 | Cloud Run | | ✓ the deployment target | ✓ |
 | Cloud Storage | | ✓ model releases are uploaded to the registry | ✓ photos, model weights at startup |
 | PyTorch | ✓ Colab | | ✓ in inference, once added |
-| Claude Code | ✓ | | |
+| Claude Code or Codex | ✓ | | |
 
 Small differences are fine (for example, whether contract generation counts as development or the
 build). What matters is noticing that the **runtime** column is short: most of our tools exist only

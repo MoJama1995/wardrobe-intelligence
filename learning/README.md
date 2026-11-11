@@ -31,9 +31,10 @@ You don't need the repository on your laptop to begin. Lesson 1 teaches you how 
    npm install      # first time only
    npm run dev      # then open http://localhost:5174
 
-   # Mentor mode: needs Claude Code
+   # Mentor mode: needs Claude Code or Codex
    cd ~/dev/wardrobe-intelligence
-   claude           # then type /tutor
+   claude           # Claude Code: then type /tutor
+   codex            # Codex: then type $tutor
    ```
 
 Tick off each part in [PROGRESS.md](PROGRESS.md) as you go. In Part D you'll commit that change
@@ -46,7 +47,7 @@ There are three ways to work through it, and you can mix them.
 | Mode | How | Best for |
 | --- | --- | --- |
 | **Web viewer** | `cd learning/app`, then `npm install` (the first time only), then `npm run dev`. Open <http://localhost:5174>. See [app/README.md](app/README.md). | one part at a time; answering questions on screen, with instant feedback on multiple-choice questions and the answer key revealed after you've answered |
-| **Mentor mode** | In Claude Code, from the repository root, type `/tutor` (or "teach me lesson 1", or "quiz me on Git"). | one question at a time, feedback on your own answers, asking "why?" as often as you like |
+| **Mentor mode** | Start Claude Code or Codex from the repository root, then type `/tutor` (Claude Code) or `$tutor` (Codex). In either, "teach me lesson 1" or "quiz me on Git" works too. | one question at a time, feedback on your own answers, asking "why?" as often as you like |
 | **Read and do** | Open a lesson in [`lessons/`](lessons/) and work through it top to bottom. Write your answers, then compare them with [`answers/`](answers/). | working anywhere, including on GitHub |
 
 Track your progress in [PROGRESS.md](PROGRESS.md). You tick items and commit the change on a
@@ -70,8 +71,8 @@ Every lesson:
 | 3 | [How software systems communicate](lessons/03-how-systems-communicate.md) | 3.5 h |
 | 4 | [Our technical stack](lessons/04-our-stack.md) | 1.5 h |
 | | **Part 2: Using coding agents professionally** | **4.5 h** |
-| 5 | [Working with Claude Code](lessons/05-claude-code.md) | 1.5 h |
-| 6 | [Claude Skills](lessons/06-skills.md) | 1 h |
+| 5 | [Working with a coding agent](lessons/05-coding-agents.md) | 1.5 h |
+| 6 | [Agent Skills](lessons/06-skills.md) | 1 h |
 | 7 | [MCP and external tools](lessons/07-mcp.md) | 1 h |
 | 8 | [Prompt management](lessons/08-prompts.md) | 1 h |
 | | **Part 3: Cloud computing and Docker** | **7 h** |
@@ -101,7 +102,7 @@ Lesson 1, and your first API endpoint in Lesson 3.
 4. **Our technical stack:** React and TypeScript, FastAPI, PyTorch and Hugging Face, the
    inference service, uv, Pulumi, Google Cloud, GitHub and Docker. What each one does, why we chose
    it, and how they work together.
-5. **Claude Code:** how coding agents work in a repository, our guardrails, giving context,
+5. **Coding agents (Claude Code or Codex):** how coding agents work in a repository, our guardrails, giving context,
    planning before building, reviewing what they produce, and their limits.
 6. **Skills:** reusable workflows for agents, using the ones in `.agents/skills/`. You write one of
    your own.
@@ -148,7 +149,7 @@ Install each tool when a lesson needs it, not all at once. On macOS most of thes
 | Lesson 1 | GitHub CLI: `brew install gh` | `gh auth status` |
 | Lesson 1 | A code editor (VS Code or Cursor) with its shell command installed | `code --version` or `cursor --version` |
 | Lesson 2 | uv: `brew install uv`, and Node.js 24 or newer: `brew install node` | `make setup && make check` in the repository |
-| Part 2 | Claude Code, signed in | `claude --version` |
+| Part 2 | Claude Code or Codex (one is enough), signed in | `claude --version` or `codex --version` |
 | Part 3 | Docker Desktop (or OrbStack) | `docker run hello-world` |
 | Lesson 12 | Free disk space and memory for the model you choose (weights are cached outside the repository) | the model card's size, compared with your laptop |
 | Optional deploy | Google Cloud SDK, Pulumi CLI and access to our Google Cloud project. Do this with your teammate: it costs money | |
@@ -158,12 +159,12 @@ teammate.
 
 ## Ground rules
 
-- **Type the commands yourself.** Claude can explain and check your work, but the habit has to be
+- **Type the commands yourself.** Your coding agent can explain and check your work, but the habit has to be
   yours.
 - **Mistakes in the practice folders are free.** In the real repository everything goes through a
   branch and a pull request, so nothing you do can break `main`.
 - **Never paste tokens, keys or `.env` contents** into a chat, a commit or a notebook.
-- **Stuck for 15 minutes?** Ask Claude or your teammate, and write the question down in
+- **Stuck for 15 minutes?** Ask your coding agent or your teammate, and write the question down in
   PROGRESS.md. Good questions are part of the work.
 
 ## About this folder

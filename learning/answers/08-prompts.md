@@ -1,7 +1,8 @@
 # Lesson 8 answer key: Prompt management
 
 > **Write your own answer first.** Reading an answer feels like understanding, but explaining it
-> yourself is what makes it stick. If your answer differs, that's useful: ask `/tutor` why.
+> yourself is what makes it stick. If your answer differs, that's useful: ask the tutor why
+> (`/tutor` or `$tutor`).
 
 Each entry lists what a good answer includes and the usual misconceptions. Your wording doesn't
 have to match.
@@ -140,7 +141,7 @@ check is needed.
 2. **Application code.** It's product behaviour: versioned, tested and evaluated, in
    `services/inference/app/` once the model exists.
 3. **A one-off message.** It's a single task.
-4. **`CLAUDE.md`.** It's a rule that applies to every task, and it's already there ("No secrets,
+4. **`AGENTS.md`.** It's a rule that applies to every task, and it's already there ("No secrets,
    `.env` files, credentials, datasets or model weights in Git").
 5. **Application code.** Users read the result, so it's a product prompt, with the same versioning
    and evaluation as (2).

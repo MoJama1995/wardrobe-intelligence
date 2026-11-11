@@ -109,14 +109,20 @@ Then let the terminal open it: in VS Code, press **Cmd+Shift+P**, type `shell co
 code --version
 ```
 
-### Exercise A4 (optional for now): Claude Code
+### Exercise A4 (optional for now): a coding agent
 
-You need Claude Code from Lesson 5 onwards, and for **mentor mode** (`/tutor`) in any lesson. Ask
-your teammate which account to use, install it by following the instructions in Anthropic's Claude
-Code documentation, then check:
+You need a coding agent from Lesson 5 onwards, and for **mentor mode** (the tutor) in any lesson.
+The course works with either **Claude Code** (from Anthropic) or **Codex** (from OpenAI); you need
+only one. Ask your teammate which one and which account to use, then install it:
+
+- **Claude Code:** follow the instructions in Anthropic's Claude Code documentation.
+- **Codex:** `npm install -g @openai/codex` (or `brew install --cask codex`). Then run `codex`
+  once and choose **Sign in with ChatGPT**.
+
+Then check:
 
 ```bash
-claude --version
+claude --version   # or: codex --version
 ```
 
 **Question 1.** Make a prediction before Part B: our API uses the Python library FastAPI. You haven't
@@ -201,7 +207,7 @@ the tests passing (the numbers grow as the project does):
 ```
 
 If anything fails, don't try to fix it alone. Copy the whole output and send it to your teammate, or
-ask Claude to explain it. A failing `make check` on a fresh setup is a setup problem, not your fault.
+ask your coding agent to explain it. A failing `make check` on a fresh setup is a setup problem, not your fault.
 
 **Question 2.** Where did `make setup` install FastAPI for our API?
 
@@ -260,13 +266,15 @@ cd ~/dev/wardrobe-intelligence/learning/app
 npm install      # first time only
 npm run dev      # then open http://localhost:5174
 
-# Mentor mode: Claude asks one question at a time (needs Claude Code)
+# Mentor mode: the tutor asks one question at a time (needs Claude Code or Codex)
 cd ~/dev/wardrobe-intelligence
-claude           # then type /tutor
+claude           # Claude Code: then type /tutor
+codex            # Codex: then type $tutor
 ```
 
 To use mentor mode inside VS Code instead, open the repository folder itself (**File → Open
-Folder… → wardrobe-intelligence**) before you start Claude Code. Otherwise it won't find the course.
+Folder… → wardrobe-intelligence**) before you start the agent. Otherwise it won't find the course. In either agent you can
+also just ask: "teach me lesson 1" or "quiz me on lesson 1".
 
 **Question 4 (explain it back).** In one sentence each, what did these give you: `git clone`,
 `make setup`, `make check` and `npm run dev`?
@@ -285,14 +293,14 @@ Folder… → wardrobe-intelligence**) before you start Claude Code. Otherwise i
 | `node --version` is older than 24 | `brew upgrade node` |
 | `Address already in use` when starting a server | something is already running on that port, probably the same server in another terminal. Stop it with Ctrl+C there |
 | the frontend shows **API unavailable** | the API isn't running. Start it in the other terminal |
-| anything else | copy the full output to your teammate or Claude; [`docs/development/setup.md`](../../docs/development/setup.md) has more fixes |
+| anything else | copy the full output to your teammate or your coding agent; [`docs/development/setup.md`](../../docs/development/setup.md) has more fixes |
 
 ### Done when
 
 - [ ] `brew`, `git`, `gh`, `uv`, `node`, `make` and `code` all answer with a version
 - [ ] the repository is in `~/dev/wardrobe-intelligence` and `make check` passes
 - [ ] you've seen **API ok · local · build local** at <http://localhost:5173>
-- [ ] the course opens in the web viewer (or `/tutor` answers in Claude Code)
+- [ ] the course opens in the web viewer (or the tutor answers in Claude Code or Codex)
 - [ ] you've written answers to Questions 1–4 and compared them with the
       [answer key](../answers/00-setup.md)
 

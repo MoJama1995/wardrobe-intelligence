@@ -36,9 +36,9 @@ has been built and tested. Use it to compare **after** you finish a milestone, o
 stuck after all the hints. Your solution doesn't have to match it: different names and structures are
 fine if the acceptance criteria hold.
 
-**Working with Claude Code:** for this challenge, ask Claude to explain, review or unblock you
-(`/tutor` works too), but write the code yourself. It's how this lesson turns into skill.
-Claude can't commit or run Pulumi in this repository: you do those.
+**Working with a coding agent:** for this challenge, ask the agent to explain, review or unblock
+you (the tutor works too: (`/tutor` or `$tutor`)), but write the code yourself. It's how this lesson turns
+into skill. The agent mustn't commit or run Pulumi in this repository: you do those.
 
 **Your branch:** work on `learning/final-challenge`. If your teammate wants to keep the result as the
 real first version of the upload flow, agree that up front. Use a `feat/` branch instead and open one
@@ -429,7 +429,7 @@ Your plan answers:
    Why images are built for `linux/amd64`, and how a running service shows which commit it is
    (`BUILD_SHA`).
 3. **Who creates the infrastructure?** Which tool defines it, and **who** runs it (hint: never
-   Claude, and never without a preview and a cost estimate).
+   the coding agent, and never without a preview and a cost estimate).
 4. **What changes between your laptop and the cloud?** List the settings (for example where the API
    finds inference, and where photos are stored) and what replaces `local-uploads/`.
 5. **Permissions:** one service account per service. What does each one need, and nothing more?
@@ -471,7 +471,7 @@ An outline to plan from:
    uploads bucket, service accounts) following `.agents/skills/gcp-infrastructure/SKILL.md`. Photos
    go to the bucket: Cloud Run's local disk disappears with the instance.
 4. A **human** runs `pulumi preview`, reads it together with the other developer, then `pulumi up -s dev`.
-   Claude is denied every Pulumi command in this repository.
+   The coding agent never runs Pulumi in this repository.
 5. Smoke test: `/health` on both services, then one upload.
 6. Write down how to remove everything, and do it when you're finished, unless you've agreed to keep
    it.

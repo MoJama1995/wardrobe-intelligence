@@ -3,7 +3,7 @@
 Tick items as you finish them (change `- [ ]` to `- [x]`), then commit the change on a branch and
 open a pull request. Keeping this file up to date is Git practice too.
 
-`/tutor` reads this file to see where you are. The web viewer (`learning/app`) keeps its own ticks
+The tutor (`/tutor` or `$tutor`) reads this file to see where you are. The web viewer (`learning/app`) keeps its own ticks
 in your browser, and its **Copy progress as checklist** button helps you update this file.
 
 ## Part 1: Software engineering foundations
@@ -51,7 +51,7 @@ in your browser, and its **Copy progress as checklist** button helps you update 
 
 ## Part 2: Using coding agents professionally
 
-### Lesson 5: Working with Claude Code (about 1.5 h)
+### Lesson 5: Working with a coding agent (about 1.5 h)
 
 - [ ] A: What a coding agent is (exercise A1, question 1)
 - [ ] B: Guardrails and context (exercise B1, questions 2 and 3)
@@ -60,7 +60,7 @@ in your browser, and its **Copy progress as checklist** button helps you update 
 - [ ] Question 7 and the answer key reviewed
 - [ ] I'm comfortable with this lesson
 
-### Lesson 6: Claude Skills (about 1 h)
+### Lesson 6: Agent Skills (about 1 h)
 
 - [ ] A: What a Skill is (exercise A1, questions 1 and 2)
 - [ ] B: Skills as reusable workflows (exercise B1, question 3)

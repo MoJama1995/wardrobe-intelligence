@@ -1,7 +1,8 @@
 # Lesson 7 answer key: MCP and external tools
 
 > **Write your own answer first.** Reading an answer feels like understanding, but explaining it
-> yourself is what makes it stick. If your answer differs, that's useful: ask `/tutor` why.
+> yourself is what makes it stick. If your answer differs, that's useful: ask the tutor why
+> (`/tutor` or `$tutor`).
 
 Each entry lists what a good answer includes and the usual misconceptions. Your wording doesn't
 have to match.
@@ -12,13 +13,13 @@ have to match.
 
 **A good answer includes:**
 
-- **Client:** Claude Code, the AI application that decides which tool to call and asks you for
+- **Client:** your coding agent (Claude Code or Codex), the AI application that decides which tool to call and asks you for
   permission.
 - **Server:** the Trello MCP server, a small program that offers Trello's features as tools and
   talks to Trello's API.
 - **Tool:** one action the server offers, with a name, a description and inputs, for example
   `move_card(card_id, list_name)`.
-- The **server** holds and uses the Trello token. Claude (the model) never needs to see the token
+- The **server** holds and uses the Trello token. The model never needs to see the token
   itself. It only asks the server to do things.
 
 **Misconception:** *"MCP is a Trello feature"* or *"MCP is the API."* MCP is the standard way the
@@ -30,10 +31,10 @@ client and server talk. The server is what translates between MCP and Trello's o
 
 **Answer: c).** On your own machine, outside Git, where the server reads it.
 
-- a) `.mcp.json` is committed and shared. Anything in it should be treated as public. It lists
+- a) `.mcp.json` (like `.codex/config.toml`) is committed and shared. Anything in it should be treated as public. It lists
   servers, never secrets.
 - b) Anything pasted into a chat can end up in transcripts and logs. Never paste tokens.
-- d) `CLAUDE.md` is committed, and it's read into every session. A token there leaks twice over.
+- d) `AGENTS.md` is committed, and it's read into every session. A token there leaks twice over.
 
 If a token ever does end up in Git or a chat: **revoke it and create a new one** (Lesson 1, "if a
 secret is ever committed").
@@ -82,7 +83,7 @@ dedicated identity with viewer-style roles (for example, read access to logs and
 
 **A good answer includes:**
 
-- **Tool permissions** (allow, ask, deny in Claude Code) control what the agent is allowed to
+- **Tool permissions** (allow, ask, deny in Claude Code; approval settings in Codex) control what the agent is allowed to
   *attempt*, and when you're asked.
 - **Credential scope** (what the token or cloud identity can do) controls what is *possible* at all,
   enforced by Trello or Google Cloud themselves.

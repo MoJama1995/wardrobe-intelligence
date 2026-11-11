@@ -552,7 +552,8 @@ inference is down.
 - [ ] Exercises A1, B1, C1 and D1 are done, and you've curled both services
 - [ ] The challenge passes `make check` on your `learning/normalise-endpoint` branch
 - [ ] You've written answers to Questions 1–8 and compared them with the
-      [answer key](../answers/03-how-systems-communicate.md), or talked them through with `/tutor`
+      [answer key](../answers/03-how-systems-communicate.md), or talked them through with the tutor
+      (`/tutor` or `$tutor`)
 - [ ] You can draw the upload journey without looking
 
 Next: **Lesson 4, Our technical stack.** Every tool you've used so far, and why we chose it.

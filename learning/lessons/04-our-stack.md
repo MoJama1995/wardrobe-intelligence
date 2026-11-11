@@ -32,7 +32,7 @@ what runs in the browser, on the servers, for the model, and around all of them.
  │                 Research: Colab + PyTorch + Hugging Face          experiments/│
  ├───────────────────────────────────────────────────────────────────────────────┤
  │ TOOLING         uv (Python), npm (JS), Makefile; Ruff, mypy, pytest,          │
- │                 oxlint, Prettier, Vitest; Claude Code                         │
+ │                 oxlint, Prettier, Vitest; Claude Code or Codex                │
  ├───────────────────────────────────────────────────────────────────────────────┤
  │ DELIVERY        GitHub (+ Actions), Docker, Pulumi (Python),                  │
  │                 Google Cloud: Cloud Run, Cloud Storage, ...    infrastructure/│
@@ -104,8 +104,8 @@ laptop" becomes "it works everywhere" (Lesson 10).
 *Infrastructure as code*: instead of clicking in the Google Cloud console, we describe buckets,
 services and permissions in Python, review the changes in a PR, and apply them. *Why Python:* the
 same language as everything else, and the pure parts can be unit-tested
-(`infrastructure/tests/test_stack_config.py`). Only a human runs `pulumi up`, and Claude isn't
-allowed to run Pulumi at all here.
+(`infrastructure/tests/test_stack_config.py`). Only a human runs `pulumi up`, and the coding
+agent isn't allowed to run Pulumi at all here.
 
 **Google Cloud.** **Planned.**
 Where the product will run. **Cloud Run** runs our containers and scales to zero when idle: CPU for
@@ -172,7 +172,7 @@ The same technologies play different roles at different moments. Keep these thre
 
 ```
 DEVELOPMENT  (your laptop, Colab)
-  editor + Claude Code ......... write code
+  editor + coding agent ........ write code
   uv, npm ...................... install dependencies from the lockfiles
   Uvicorn, Vite dev server ..... run the services locally (Lesson 3)
   Ruff, mypy, pytest, Vitest ... check it (make check)
@@ -211,7 +211,7 @@ Draw three columns, **Development**, **Deployment** and **Runtime**, and place e
 every column where it plays a role. Some belong in more than one.
 
 `uv` · `npm` · `Vite` · `TypeScript` · `React` · `FastAPI` · `Uvicorn` · `Pydantic` · `pytest` ·
-`Docker` · `Pulumi` · `GitHub Actions` · `Cloud Run` · `Cloud Storage` · `PyTorch` · `Claude Code`
+`Docker` · `Pulumi` · `GitHub Actions` · `Cloud Run` · `Cloud Storage` · `PyTorch` · `Claude Code` or `Codex`
 
 **Question 2.** Which of these is still involved when a user opens our *deployed* web app?
 
@@ -251,7 +251,7 @@ again. Knowing the trade-off is what lets you change a decision well later.
 
 **Choosing the model is your call.** You lead ML, and you'll decide based on evaluation results.
 The project only asks that whatever you choose fits its rules (from `services/inference/README.md`,
-the `model-packaging` skill and `CLAUDE.md`):
+the `model-packaging` skill and `AGENTS.md`):
 
 | Rule | Why |
 | --- | --- |
@@ -307,7 +307,9 @@ that's planned rather than built.
 - [ ] Exercise B1: your three columns are sorted
 - [ ] Exercise C1: you've written a fit card
 - [ ] You've written answers to Questions 1–5 and compared them with the
-      [answer key](../answers/04-our-stack.md), or talked them through with `/tutor`
+      [answer key](../answers/04-our-stack.md), or talked them through with the tutor
+      (`/tutor` or `$tutor`)
 - [ ] You can draw the development → deployment → runtime diagram without looking
 
-Next: **Lesson 5, Working with Claude Code.** How to work with a coding agent in this repository.
+Next: **Lesson 5, Working with a coding agent.** How to work with Claude Code or Codex in this
+repository.

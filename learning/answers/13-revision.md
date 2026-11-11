@@ -1,7 +1,7 @@
 # Lesson 13 answer key: Revision
 
 > **Write your own answer first.** If yours differs, look at the lesson named in brackets, or ask
-> `/tutor` to go through it with you.
+> the tutor (`/tutor` or `$tutor`) to go through it with you.
 
 ---
 
@@ -55,8 +55,8 @@ If you skip step 3, the frontend's types don't know about `fit`, so TypeScript s
 
 **A good answer includes:**
 
-- A **Skill** is instructions for the *coding agent* (Claude Code) about how to do a kind of
-  development work. Examples: `pr-review`, `model-packaging`, `tutor`. Claude reads it while helping
+- A **Skill** is instructions for the *coding agent* (Claude Code or Codex) about how to do a kind
+  of development work. Examples: `pr-review`, `model-packaging`, `tutor`. The agent reads it while helping
   developers. It never runs inside the product.
 - The **product prompt** is part of the *product*: the text the inference service sends to the VLM
   with each photo. It's a versioned constant in `services/inference`, released with the model
@@ -123,4 +123,4 @@ There's no single right answer. A good answer is **specific**. "Docker" is too v
 explain why the uv layer is cached, so I'll redo Lesson 10's caching exercise and explain it to my
 teammate" is the kind of answer that helps.
 
-Bring both items to your next session with your teammate, or start `/tutor` on that lesson.
+Bring both items to your next session with your teammate, or start the tutor (`/tutor` or `$tutor`) on that lesson.

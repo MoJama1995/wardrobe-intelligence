@@ -29,7 +29,7 @@ Conventions for everything in `learning/`. They keep lessons consistent, and the
 | `PROGRESS.md`, `README.md` | course-wide; changed only by the course maintainer |
 
 Lesson file names: `01-git`, `02-project-structure`, `03-how-systems-communicate`, `04-our-stack`,
-`05-claude-code`, `06-skills`, `07-mcp`, `08-prompts`, `09-cloud`, `10-docker`,
+`05-coding-agents`, `06-skills`, `07-mcp`, `08-prompts`, `09-cloud`, `10-docker`,
 `11-how-everything-connects`, `12-final-challenge`, `13-revision`.
 
 ## Lesson structure
@@ -119,7 +119,10 @@ Open questions describe what a good answer *includes*, rather than giving one mo
   agrees.
 - **Nothing costs money or touches shared systems** without "do this together with your teammate"
   and a cost note. Optional cloud steps are always marked optional.
-- Claude Code's guardrails in this repository (`.claude/settings.json`): Claude may **not** run
+- The coding agent's guardrails in this repository (`AGENTS.md`): the agent may **not** run
   `git commit` or any `pulumi` command, and it asks before `git push`, `gcloud run deploy`,
-  `gcloud builds submit` and `docker push`. Lessons say "you run this" for those commands.
+  `gcloud builds submit` and `docker push`. Claude Code enforces them (`.claude/settings.json`);
+  Codex follows them as instructions. Lessons say "you run this" for those commands.
+- Lessons work with **either Claude Code or Codex**. Say "the agent" or "your coding agent",
+  not "Claude", and where commands differ show both (`/tutor` or `$tutor`, Shift+Tab or `/plan`).
 - Never ask the learner to paste tokens, keys or `.env` contents anywhere.

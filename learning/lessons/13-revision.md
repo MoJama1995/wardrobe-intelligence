@@ -53,7 +53,7 @@ what reads each one.
 
 ## Part B: Cloud, containers and the whole system (10 minutes)
 
-**Question 6.** Claude could connect to our Trello board through an MCP server. What access would you
+**Question 6.** Your coding agent could connect to our Trello board through an MCP server. What access would you
 give it to begin with? Name two risks of giving it more.
 
 **Question 7.** Why does our plan run the GPU inference service on Cloud Run with a minimum of zero
@@ -93,7 +93,7 @@ where to go back next. Each line names its lesson.
 - [ ] I can describe an HTTP request and response: method, path, headers, body, status code, JSON (3)
 - [ ] I can explain why the frontend's types are generated from `openapi.json` (3)
 - [ ] I can name each technology in our stack and what it does for us (4)
-- [ ] I can give Claude Code a well-scoped task, plan it first and review the result (5)
+- [ ] I can give a coding agent a well-scoped task, plan it first and review the result (5)
 - [ ] I can explain what a Skill is, and when a workflow deserves one (6)
 - [ ] I can explain what MCP is, and why agents get the least access that works (7)
 - [ ] I can version and test a prompt, and say whether it belongs in a Skill or in the product (8)
@@ -107,12 +107,12 @@ where to go back next. Each line names its lesson.
 ### Explain it to your teammate
 
 Pick **two** of these and explain each one out loud in about two minutes, to your teammate or to
-`/tutor`. Notice where you hesitate: that's useful information.
+the tutor (`/tutor` or `$tutor`). Notice where you hesitate: that's useful information.
 
 1. Why every change goes through a branch and a pull request, even with two people.
 2. Everything that happens between pressing **Analyse** and seeing the attributes.
 3. Why we reference a model by a revision SHA and never by `main`.
-4. Why Claude can't commit or run Pulumi in this repository, and why that's a feature.
+4. Why the coding agent mustn't commit or run Pulumi in this repository, and why that's a feature.
 5. What Docker gives us that `uv sync` on a laptop doesn't.
 6. Why the API and inference are separate services.
 
@@ -160,7 +160,7 @@ your teammate, or pick up a real task in that area)?
 | Revision (immutable) | An exact version (a commit SHA) that can never change, unlike `main` or `latest` | 12 |
 | Scale to zero | No instances while idle, so no compute cost, at the price of cold starts | 9 |
 | Serverless | You provide code or a container; the platform runs and scales the servers | 9 |
-| Skill | Reusable, versioned instructions that Claude loads for a kind of task | 6 |
+| Skill | Reusable, versioned instructions that a coding agent loads for a kind of task | 6 |
 | Staging area | The next commit being put together (`git add`) | 1 |
 | Timeout | The longest a caller waits before giving up. Required on every outbound call | 3, 12 |
 | uv | Our Python tool for versions, environments and lockfiles | 2, 4 |

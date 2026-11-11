@@ -1396,7 +1396,7 @@ Yours can be organised differently. This one shows the level of detail to aim fo
    images for `linux/amd64` with `--build-arg BUILD_SHA=<git sha>` and pushes them. `/health` then
    reports which commit is running.
 3. **Infrastructure:** Pulumi (Python) in `infrastructure/`. A human runs `pulumi preview`, reads it
-   with the other developer, then runs `pulumi up -s dev`. Claude is denied every Pulumi command. Prod
+   with the other developer, then runs `pulumi up -s dev`. The coding agent never runs Pulumi. Prod
    is changed only by a human, after review.
 4. **Laptop compared with the cloud:** `API_INFERENCE_URL` (localhost:8001 becomes the inference
    service's URL); storage (a local folder becomes a GCS bucket, through the same `ImageStore`

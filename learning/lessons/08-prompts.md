@@ -73,7 +73,7 @@ context without touching them. It also means untrusted content (a photo can cont
 printed T-shirt slogan) stays in its slot, clearly marked as data, not mixed into the rules. That's
 the prompt-injection lesson from Lesson 7 again.
 
-The same split makes your requests to Claude Code better: instructions (goal, constraints,
+The same split makes your requests to your coding agent better: instructions (goal, constraints,
 acceptance criteria) plus context (`@` files, error output). See Lesson 5.
 
 **Question 1.** Name three problems with prompt v1 for our product. For each one, say which number
@@ -340,16 +340,16 @@ up. They have different readers and different stakes:
 
 | | Skill | Product prompt (application code) |
 | --- | --- | --- |
-| **Read by** | Claude Code, helping you and your teammate build | our product's model, answering users |
+| **Read by** | your coding agent (Claude Code or Codex), helping you and your teammate build | our product's model, answering users |
 | **Lives in** | `.agents/skills/<name>/SKILL.md` | `services/inference/app/` (planned), next to its parser |
 | **Versioned by** | Git and PR review | Git, plus a prompt version id recorded in experiments, evaluation reports and the release manifest |
 | **Tested by** | trying it and reviewing what it produces | unit tests, a golden set, and an evaluation against the baseline |
 | **A change means** | your workflow works differently | users see different results: it's a model change |
 
-And for completeness: a rule that applies to every task belongs in `CLAUDE.md`, and a one-off
+And for completeness: a rule that applies to every task belongs in `AGENTS.md`, and a one-off
 instruction is just a message.
 
-**Question 6.** Where does each of these belong: a Skill, application code, `CLAUDE.md`, or a
+**Question 6.** Where does each of these belong: a Skill, application code, `AGENTS.md`, or a
 one-off message?
 
 1. A checklist for turning a finished Colab experiment into a record in `docs/ml/experiments/`
@@ -397,13 +397,14 @@ that it ships?
 | version a prompt | a version id (`attributes-v2`) changed with every edit; recorded with every result |
 | catch broken prompts or parsers | unit tests for `render_prompt` and `parse_output` |
 | compare prompt versions | the same golden set, scored with `score_attributes`, parse failures counted separately |
-| decide where it lives | product behaviour → application code; how we work → a Skill; always true → `CLAUDE.md` |
+| decide where it lives | product behaviour → application code; how we work → a Skill; always true → `AGENTS.md` |
 
 ### Done when
 
 - [ ] Exercises B1 and B2 are done, and your numbers match the expected output
 - [ ] You've written answers to Questions 1–7 and compared them with the
-      [answer key](../answers/08-prompts.md), or talked them through with `/tutor`
+      [answer key](../answers/08-prompts.md), or talked them through with the tutor
+      (`/tutor` or `$tutor`)
 - [ ] You can explain why a prompt change is a model change
 
 Next: **Lesson 9, Understanding cloud computing.** Part 3 begins: where all of this will run.

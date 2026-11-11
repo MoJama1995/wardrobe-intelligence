@@ -228,7 +228,8 @@ damage to what the API could do anyway.
 
 A service account can have a **key file**: a JSON file that lets anyone holding it act as that
 account, forever, from anywhere. Key files leak (in commits, in Colab notebooks, in screenshots), so
-we never create them. Our `.gitignore` and Claude Code's permission rules both block them.
+we never create them. Our `.gitignore` keeps them out of Git, and our agent rules keep coding
+agents away from them (`AGENTS.md`; Claude Code also blocks reading them).
 
 Instead:
 
@@ -323,8 +324,9 @@ Words you'll need:
 - **`pulumi up`:** makes the changes. Pulumi records what it created in its **state**, so next time it
   knows what already exists.
 
-**Who runs Pulumi in our project:** a human, after reviewing the preview and a cost estimate. Claude
-Code is not allowed to run *any* `pulumi` command in this repository (`.claude/settings.json`), and
+**Who runs Pulumi in our project:** a human, after reviewing the preview and a cost estimate. The
+coding agent must not run *any* `pulumi` command in this repository (`AGENTS.md`; Claude Code
+also blocks it in `.claude/settings.json`), and
 `prod` is only changed after review. You'll run Pulumi yourself only in the optional deployment
 extension, together with your teammate.
 
@@ -427,7 +429,8 @@ and how Pulumi fits in.
 
 - [ ] Exercises A1, B1, C1, D1 and D2 are done
 - [ ] You've written answers to Questions 1–8 and compared them with the
-      [answer key](../answers/09-cloud.md), or talked them through with `/tutor`
+      [answer key](../answers/09-cloud.md), or talked them through with the tutor
+      (`/tutor` or `$tutor`)
 - [ ] You can draw the Part A diagram from memory and point to compute, storage and networking
 
 Next: **Lesson 10, Docker.** You'll build the container images that Cloud Run runs.

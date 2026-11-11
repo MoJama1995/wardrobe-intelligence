@@ -323,7 +323,7 @@ only what you need.
 
 ```
  1. README.md               what is this, how do I run it?
- 2. CLAUDE.md, CONTRIBUTING  rules and conventions (CLAUDE.md doubles as a map of the repo)
+ 2. AGENTS.md, CONTRIBUTING  rules and conventions (AGENTS.md doubles as a map of the repo)
  3. docs/architecture/      how the parts fit together
  4. docs/decisions/         why it's built this way
  5. the component's README   how to run and change one part
@@ -354,7 +354,7 @@ if the answer changed.
 | jump to where something is defined | `F12` (Go to Definition) | |
 | see who changed a line and why | Git blame in the editor | `git log -p <file>` |
 
-Later (Lesson 5) you'll also ask Claude Code to explain parts of the repository. That's useful,
+Later (Lesson 5) you'll also ask a coding agent to explain parts of the repository. That's useful,
 but you still need to know where to look to check its answers.
 
 ### Exercise C1: repository scavenger hunt (20 minutes)
@@ -428,7 +428,8 @@ using at least one concrete example from our code.
 - [ ] `make setup` and `make check` both succeed on your laptop
 - [ ] Exercises A1, B1, B2 and C1 are done
 - [ ] You've written answers to Questions 1–5 and the challenge, and compared them with the
-      [answer key](../answers/02-project-structure.md), or talked them through with `/tutor`
+      [answer key](../answers/02-project-structure.md), or talked them through with the tutor
+      (`/tutor` or `$tutor`)
 - [ ] You can draw the dependency arrows from Part B without looking
 
 Next: **Lesson 3, How software systems communicate.** You'll run the API and send it requests.
